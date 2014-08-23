@@ -1,0 +1,15 @@
+makeCacheMatrix <- function(x = matrix()) {
+	  nrx <- nrow(x)
+	  ncx <- ncol(x)
+        inv <- matrix(NA,ncx,nrx)
+        set <- function(y) {
+                x <<- y
+                inv <<- matrix(NA,ncx,nrx)
+        }
+        get <- function() x
+        setSolve <- function(solve) inv <<- solve
+        getSolve <- function() inv
+        list(set = set, get = get,
+             setSolve = setSolve,
+             getSolve = getSolve)
+}
